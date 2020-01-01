@@ -1,7 +1,7 @@
 Commands for Installating Ansible on Ubuntu:-
 -------------------------------------------
 sudo apt-get update
-sudo apt-get install software-proprties-common
+sudo apt-get install software-properties-common
 sudp apt-add-repository ppa:ansible/ansible
 sudo apt-get install -y ansible
 ansible --version
