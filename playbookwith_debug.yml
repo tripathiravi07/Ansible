@@ -1,0 +1,13 @@
+---
+- name: Creating file and using debug module
+  hosts: all
+  tasks:
+   - name: File creation
+     file:
+      name: /home/ubuntu/new.txt
+      state: touch
+     register: a
+   - name: debug module for displaying output
+     debug:
+      var: a
+...      

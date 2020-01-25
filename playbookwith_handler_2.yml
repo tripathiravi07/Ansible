@@ -1,0 +1,30 @@
+---
+- name: Configuring Apache2
+  hosts: all
+  tasks:
+   - name: Installing Apache2
+     apt:
+      name: apache2
+      state: present
+     notify: checking url
+   - name: Copying file to /var/www/html
+     copy:
+      content: "Welcome to Ansible\n"
+      dest: /var/www/html/index.html
+     notify: restart apache2
+  handlers:
+   - name: restart apache2
+     service:
+      name: apache2
+      state: restarted
+   - name: checking url
+     uri:
+      url: "{{item}}"
+      status_code: 200
+     with_items:
+       - http://172.31.44.90
+       - http://172.31.44.90
+...         
+
+
+  

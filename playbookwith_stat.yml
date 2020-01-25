@@ -1,0 +1,19 @@
+---
+- name: Checking if a directory exists, create a file if directory from same name is not present
+  hosts: all
+  tasks:
+   - name: Checking dir
+     stat: 
+      path: /home/ubuntu/n1
+     register: a
+   - name: displaying out of above
+     debug:
+      var: a
+   - name: create a file if directory not exits
+     file:
+      path: /home/ubuntu/n1
+      state: touch
+     when:
+      a.stat.exists == false
+...      
+

@@ -1,0 +1,12 @@
+---
+- name: Creating User via Group Host Scope Variable
+  hosts: webserver
+  tasks:
+   - name: Creating User
+     user:
+      name: "{{a}}"
+      password: "{{b}}"
+      home: "{{c}}"
+      uid: "{{d}}"
+      shell: "{{e}}"
+...      

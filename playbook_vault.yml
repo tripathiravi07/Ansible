@@ -1,0 +1,12 @@
+---
+- name: Creating multiple users
+  hosts: all
+  tasks:
+   - name: create user
+     user:
+      name: "{{item.a}}"
+      password: "{{item.b}}"
+     with_items:
+      - {a: Tom,b: pass}
+      - {a: Jerry,b: pass}
+...        

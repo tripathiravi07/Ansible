@@ -1,0 +1,10 @@
+---
+- name: Intalling software
+  hosts: 172.31.44.90
+  tasks:
+   - name: Installing s/w
+     apt:
+      name: "{{a}}"
+      state: "{{b}}"
+      update_cache: "{{c}}"
+...      

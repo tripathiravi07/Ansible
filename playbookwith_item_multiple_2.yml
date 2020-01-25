@@ -1,0 +1,23 @@
+---
+- name: Creating multiple users & files in their home directory using loops
+  hosts: all
+  tasks:
+   - name: Creating Users
+     user:
+      name: "{{item.a}}"
+      password: "{{item.b}}"
+      home: "{{item.c}}"
+     with_items:
+      - {a: Raju,b: Intelliqit,c: /home/ubuntu/Raju}
+      - {a: Rajesh,b: Intelliqit,c: /home/ubuntu/Rajesh}
+      - {a: Ram,b: Intelliqit,c: /home/ubuntu/Ram}
+   - name: Creating files
+     file:
+      name: "{{item.d}}"
+      state: "{{item.e}}"
+     with_items:
+      - {d: /home/ubuntu/Raju/raju.txt,e: touch}
+      - {d: /home/ubuntu/Rajesh/rajesh.txt,e: touch}
+      - {d: /home/ubuntu/Ram/dir,e: directory}
+...       
+
