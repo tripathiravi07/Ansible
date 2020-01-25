@@ -1,0 +1,19 @@
+---
+- name: Configuring Apache2
+  hosts: all
+  tasks:
+   - name: Installing Apache2
+     apt:
+      name: apache2
+      state: present
+   - name: Copying file to /var/www/html
+     copy:
+      content: "Welcome to Motherson\n"
+      dest: /var/www/html/index.html
+     notify: Restart apache2
+  handlers:
+   - name: Restart apache2
+     service:
+      name: apache2
+      state: restarted
+...

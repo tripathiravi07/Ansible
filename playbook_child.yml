@@ -1,0 +1,6 @@
+---
+- name: Install firewalld
+  apt:
+   name: firewalld
+   state: present
+...   

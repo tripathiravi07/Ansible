@@ -1,0 +1,14 @@
+---
+- name: Installing Software
+  hosts: all
+  tasks:
+   - name: Installing multiple softwares
+     apt:
+      name: "{{item.a}}"
+      state: "{{item.b}}"
+      update_cache: "{{item.c}}"
+     with_items:
+      - {a: git,b: absent,c: no}
+      - {a: apache2,b: latest, c: yes}
+      - {a: tree,b: present, c: no}
+...

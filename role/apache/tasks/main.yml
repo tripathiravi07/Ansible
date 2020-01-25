@@ -1,0 +1,6 @@
+---
+# tasks file for apache
+- include: install_apache.yml
+- include: configure_apache.yml
+- include: check_url.yml
+...  

@@ -1,0 +1,10 @@
+---
+- name: Installation/Uninstallation via passing variables
+  hosts: all
+  tasks:
+   - name: Installing or uninstalling
+     apt:
+      name: "{{a}}"
+      state: "{{b}}"
+      update_cache: "{{c}}"
+...

@@ -1,0 +1,12 @@
+---
+- name: Configuraging Firewalld
+  hosts: all
+  become: yes
+  tasks:
+   - name: Installing firewalld
+     apt:
+      name: firewalld
+      state: absent
+      update_cache: yes
+...
+

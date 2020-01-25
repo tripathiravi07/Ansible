@@ -1,0 +1,16 @@
+---
+- name: User Creation and Password Copy
+  hosts: all
+  become: yes
+  tasks:
+   - name: Creating User
+     user:
+      name: Harish
+      password: hari@123
+      home: /home/harish
+   - name: Copying File
+     copy:
+      src: /etc/passwd
+      dest: /home/harish
+...
+

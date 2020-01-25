@@ -1,0 +1,13 @@
+---
+- name: copy tomcat-users.xml
+  copy:
+   src: "{{file1}}"
+   dest: "{{destination1}}"
+  notify: check_urls
+- name: Replace 8080 with 9090
+  replace:
+   regexp: "{{reg1}}"
+   replace: "{{rep1}}"
+   path: "{{path1}}"
+...  
+

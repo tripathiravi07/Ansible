@@ -1,0 +1,14 @@
+---
+- name: Creating Users & Copying file in the home directory
+  hosts: all
+  tasks:
+   - name:
+     user:
+      name: "{{a}}"
+      password: "{{b}}"
+      home: "{{c}}"
+   - name: Creating file in home directory
+     file:
+      name: "{{d}}"
+      state: "{{e}}"
+...

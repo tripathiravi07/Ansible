@@ -1,0 +1,20 @@
+---
+- name: Creating PlayBook with tags
+  hosts: all
+  tasks:
+   - name: Install s/w
+     apt:
+      name: tree
+      state: present
+     tags: Install_software
+   - name: create user
+     user:
+      name: Alex
+      password: laex@123
+      home: /home/ubuntu/alex
+     tags: creat_user
+   - name: Copy file
+     copy:
+      src: /etc/passwd
+      dest: /tmp
+...   
